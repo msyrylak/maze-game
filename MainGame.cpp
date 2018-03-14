@@ -5,15 +5,19 @@ using namespace std;
 
 int main()
 {
-	do
-	{
+	Maze m;
+	m.initRoomList();
+
+	//do
+	//{
+	//	cout << "Welcome to the Maze Game!" << endl;
 
 
 
 
 
 
-	} while (true);
+	//} while (true);
 
 	return 0;
 }

@@ -1,17 +1,19 @@
 #ifndef MAZE_H
 #define MAZE_H
+#include "stdafx.h"
+
+class Room;
+
 class Maze
 {
 public:
 	Maze();
 	~Maze();
 
-	Room* firstRoom;
-	Room* temp; 
+	void initRoomList();
+
+	Room* roomList;
 };
-
-
-
 
 #endif // !MAZE_H
 

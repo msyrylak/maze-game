@@ -1,13 +1,38 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+
 #include "stdafx.h"
 
-class Room
+
+class Node
 {
-	//class Room represents a node in a linked list
+public:
+	Node* link;
+
+	Node()
+	{
+		link = nullptr;
+	}
+
+	void setLink(Node* node)
+	{
+		link = node;
+	}
+
+	Node* getLink()
+	{
+		return link;
+	}
+};
+
+
+class Room : public Node
+{
+	//class Room represents a node in a graph
 
 public:
+
 	Room();
 	~Room();
 
@@ -20,7 +45,6 @@ public:
 	Room* getSouth();
 	Room* getEast();
 	Room* getWest();
-
 
 private:
 	//directions
