@@ -11,9 +11,10 @@ public:
 	~Maze();
 
 	Room* initRoomList();
-	void printRoomList();
 	Room* findRoom(int i);
-
+	void printRoomList();
+	void addEdges(Room* _current, int n, int s, int e, int w);
+	void deleteRoomList();
 	Room* roomList;
 };
 

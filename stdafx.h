@@ -3,5 +3,6 @@
 #include "Room.h"
 #include "Maze.h"
 #include <iostream>
+#include <fstream>
 
 #endif
