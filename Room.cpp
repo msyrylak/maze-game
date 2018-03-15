@@ -7,6 +7,7 @@ Room::Room()
 	setSouth(nullptr);
 	setEast(nullptr);
 	setWest(nullptr);
+	link = nullptr;
 }
 
 
@@ -54,3 +55,13 @@ Room* Room::getWest()
 	return west;
 }
 
+
+void Room::setLink(Room* node)
+{
+	link = node;
+}
+
+Room* Room::getLink()
+{
+	return link;
+}

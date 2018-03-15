@@ -10,7 +10,9 @@ public:
 	Maze();
 	~Maze();
 
-	void initRoomList();
+	Room* initRoomList();
+	void printRoomList();
+	Room* findRoom(int i);
 
 	Room* roomList;
 };

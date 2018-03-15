@@ -5,29 +5,7 @@
 #include "stdafx.h"
 
 
-class Node
-{
-public:
-	Node* link;
-
-	Node()
-	{
-		link = nullptr;
-	}
-
-	void setLink(Node* node)
-	{
-		link = node;
-	}
-
-	Node* getLink()
-	{
-		return link;
-	}
-};
-
-
-class Room : public Node
+class Room
 {
 	//class Room represents a node in a graph
 
@@ -40,11 +18,13 @@ public:
 	void setSouth(Room* room);
 	void setEast(Room* room);
 	void setWest(Room* room);
+	void setLink(Room* room);
 
 	Room* getNorth();
 	Room* getSouth();
 	Room* getEast();
 	Room* getWest();
+	Room* getLink();
 
 private:
 	//directions
@@ -52,6 +32,7 @@ private:
 	Room* south;
 	Room* east;
 	Room* west;
+	Room* link;
 };
 
 #endif
