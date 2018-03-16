@@ -4,5 +4,6 @@
 #include "Maze.h"
 #include <iostream>
 #include <fstream>
+#include <conio.h>
 
 #endif

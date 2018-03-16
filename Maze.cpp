@@ -16,7 +16,7 @@ Maze::~Maze()
 
 Room* Maze::initRoomList()
 {
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 15; i++)
 	{
 		Room* r = new Room;
 		r->setLink(roomList);
@@ -30,7 +30,7 @@ void Maze::printRoomList()
 	Room* current;
 	current = roomList;
 
-	while(current != nullptr)
+	while(current)
 	{
 		std::cout << current << std::endl;
 		current = current->getLink();
@@ -41,7 +41,7 @@ Room* Maze::findRoom(int i)
 {
 	if(i < 0)
 	{
-		std::cout << "Invalid index!" << std::endl;
+		//std::cout << "Invalid index!" << std::endl;
 		return nullptr;
 	}
 
@@ -86,4 +86,21 @@ void Maze::deleteRoomList()
 		std::cout << "Deleted!" << std::endl;
 	}
 	roomList = nullptr;
+}
+
+int Maze::roomNumber(Room* current)
+{
+	Room* temp;
+	temp = roomList;
+	int count = 0;
+
+	while(temp)
+	{
+		if(current == temp)
+		{
+			return count;
+		}
+		temp = temp->getLink();
+		count++;
+	}
 }

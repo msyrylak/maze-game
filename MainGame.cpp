@@ -8,6 +8,9 @@ int main()
 	int r, n, s, e, w;
 	Maze m;
 	m.initRoomList();
+	
+	Room* current = m.roomList;
+	Room* next;
 
 	ifstream roomsFile;
 	roomsFile.open("roomNum.txt");
@@ -23,28 +26,51 @@ int main()
 			m.addEdges(m.findRoom(r-1), n-1, s-1, e-1, w-1);
 		}
 	}
-	
 
+	bool running = true;
 
+	while(running)
+	{
+		cout << "You are in the room number: " << m.roomNumber(current) + 1 << endl;
+		cout << "Which direction do you want to go?" << endl;
+		cout << "(n)orth, (s)outh, (e)ast, (w)est or (esc)ape" << endl;
 
-	//m.findRoom(5);
-    //m.addEdges(m.findRoom(6), 2, 5, 0, 7);
+		next = current;
 
+		switch(_getch())
+		{
+		case 'n':
+			next = current->getNorth();
+			break;
+
+		case 's':
+			next = current->getSouth();
+			break;
+
+		case 'e':
+			next = current->getEast();
+			break;
+
+		case 'w':
+			next = current->getWest();
+			break;
+
+		case 27:
+			running = false;
+			break;
+
+		default:
+			break;
+		}
+		if(next)
+		{
+			current = next;
+		}
+		else
+		{
+			cout << "There's nothing behind this door!" << endl;
+		}
+	}
 	m.deleteRoomList();
-
-
-	
-
-	//do
-	//{
-	//	cout << "Welcome to the Maze Game!" << endl;
-
-
-
-
-
-
-	//} while (true);
-
 	return 0;
 }
