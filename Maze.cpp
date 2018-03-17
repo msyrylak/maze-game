@@ -13,16 +13,45 @@ Maze::~Maze()
 	deleteRoomList();
 }
 
+void Maze::setRoomList(Room* _room)
+{
+	roomList = _room;
+}
+
+Room* Maze::getRoomList()
+{
+	return roomList;
+}
+
 
 Room* Maze::initRoomList()
 {
 	for(int i = 0; i < 15; i++)
 	{
-		Room* r = new Room;
-		r->setLink(roomList);
-		roomList = r;
+		addToList(new Room());
 	}
 	return roomList;
+}
+
+void Maze::addToList(Room* room)
+{
+	if(!roomList)
+	{
+		roomList = room;
+	}
+	else
+	{
+		Room* current = roomList;
+		while(current)
+		{
+			if(!current->getLink())
+			{
+				current->setLink(room);
+				break;
+			}
+			current = current->getLink();
+		}
+	}
 }
 
 void Maze::printRoomList()

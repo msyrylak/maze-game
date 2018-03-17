@@ -9,7 +9,7 @@ int main()
 	Maze m;
 	m.initRoomList();
 	
-	Room* current = m.roomList;
+	Room* current = m.getRoomList();
 	Room* next;
 
 	ifstream roomsFile;
@@ -26,7 +26,7 @@ int main()
 			m.addEdges(m.findRoom(r-1), n-1, s-1, e-1, w-1);
 		}
 	}
-
+	m.printRoomList();
 	bool running = true;
 
 	while(running)
