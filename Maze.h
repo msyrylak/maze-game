@@ -18,6 +18,7 @@ public:
 	void addEdges(Room* _current, int n, int s, int e, int w);
 	void deleteRoomList();
 	int roomNumber(Room* _current);
+	void roomCheck(int roomNumber);
 
 private:
 	Room* roomList;

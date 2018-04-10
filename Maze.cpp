@@ -1,12 +1,9 @@
 #include "stdafx.h"
 
-
-
 Maze::Maze()
 {
 
 }
-
 
 Maze::~Maze()
 {
@@ -61,7 +58,7 @@ void Maze::printRoomList()
 
 	while(current)
 	{
-		std::cout << current << std::endl;
+		cout << current << std::endl;
 		current = current->getLink();
 	}
 }
@@ -131,5 +128,23 @@ int Maze::roomNumber(Room* current)
 		}
 		temp = temp->getLink();
 		count++;
+	}
+}
+
+void Maze::roomCheck(int roomNumber)
+{
+	if(roomNumber == (15 - 1))
+	{
+		cout << " " << endl;
+		cout << "    _____                            _         _       _   _                 " << endl;
+		cout << "   / ____|                          | |       | |     | | (_)                " << endl;
+		cout << "  | |     ___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_ _  ___  _ __  ___  " << endl;
+		cout << "  | |    / _ \\| '_ \\ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \\| '_ \\/ __|" << endl;
+		cout << "  | |___| (_) | | | | (_| | | | (_| | |_| |_| | | (_| | |_| | (_) | | | \\__ \\" << endl;
+		cout << "   \\_____\\___/|_| |_|\\__, |_|  \\__,_|\\__|\\__,_|_|\\__,_|\\__|_|\\___/|_| |_|___/" << endl;
+		cout << "                      __/ |                                                  " << endl;
+		cout << "                     |___/                                                   " << endl;
+		cout << "Congratulations you are at the end of the maze! What do you wish to do now?" << endl;
+		cout << "You can keep playing or press escape to finish!" << endl;
 	}
 }
