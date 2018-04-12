@@ -1,6 +1,6 @@
 #ifndef MAZE_H
 #define MAZE_H
-#include "stdafx.h"
+#include "MazeGamePCH.h"
 
 class Room;
 
@@ -17,8 +17,8 @@ public:
 	void printRoomList();
 	void addEdges(Room* _current, int n, int s, int e, int w);
 	void deleteRoomList();
-	int roomNumber(Room* _current);
-	void roomCheck(int roomNumber);
+	int getRoomNumber(Room* _current);
+	bool checkIfEndRoom(int roomNumber);
 
 private:
 	Room* roomList;

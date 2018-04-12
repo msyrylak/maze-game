@@ -1,5 +1,5 @@
-#ifndef STDAFX_H
-#define STDAFX_H
+#ifndef MAZEGAMEPCH_H
+#define MAZEGAMEPCH_H
 
 using namespace std;
 #include "Room.h"

@@ -1,5 +1,4 @@
-#include "stdafx.h"
-
+#include "MazeGamePCH.h"
 
 Room::Room()
 {

@@ -1,9 +1,6 @@
 #ifndef ROOM_H
 #define ROOM_H
-
-
-#include "stdafx.h"
-
+#include "MazeGamePCH.h"
 
 class Room
 {
