@@ -51,23 +51,10 @@ void Maze::addToList(Room* room)
 	}
 }
 
-void Maze::printRoomList()
-{
-	Room* current;
-	current = roomList;
-
-	while(current)
-	{
-		cout << current << std::endl;
-		current = current->getLink();
-	}
-}
-
 Room* Maze::findRoom(int i)
 {
 	if(i < 0)
 	{
-		//std::cout << "Invalid index!" << std::endl;
 		return nullptr;
 	}
 

@@ -14,7 +14,6 @@ public:
 	Room* getRoomList();
 	Room* initRoomList();
 	Room* findRoom(int i);
-	void printRoomList();
 	void addEdges(Room* _current, int n, int s, int e, int w);
 	void deleteRoomList();
 	int getRoomNumber(Room* _current);

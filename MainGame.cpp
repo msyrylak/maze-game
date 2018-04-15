@@ -13,6 +13,7 @@ int main()
 
 	ifstream roomsFile;
 
+	//state machine
 	enum
 	{
 		INITIALIZE,
@@ -30,11 +31,15 @@ int main()
 		switch(gState)
 		{
 		case INITIALIZE:
+			system("cls");
 
+			//create the linked list of rooms
 			m.initRoomList();
 
 			current = m.getRoomList();
 
+			//open text file with the maze configuration
+			//read from the file and create connections between rooms
 			roomsFile.open("roomNum.txt");
 			if(roomsFile)
 			{
@@ -51,14 +56,14 @@ int main()
 			roomsFile.close();
 
 			cout << "Welcome to The Maze Game!" << endl;
-			cout << "Are you ready to play? Press 's' or Enter to start or 'q' to quit.\n" << endl;
+			cout << "Are you ready to play? Press 's' or Enter to start or 'q' or Escape to quit.\n" << endl;
 
 			c = _getch();
-			if(c == 's' || '/n')
+			if(c == 's' || c == 13)
 			{
 				gState = RUNNING;
 			}
-			else if(c == 'q')
+			else if(c == 'q' || c == 27)
 			{
 				gState = QUIT;
 			}
@@ -69,10 +74,12 @@ int main()
 			break;
 
 		case RUNNING:
+
 			while(gState == RUNNING)
 			{
 				cout << "You are in the room number: " << m.getRoomNumber(current) + 1 << endl;
 
+				//check if the user reached the final room
 				bool checkEnded = m.checkIfEndRoom(m.getRoomNumber(current));
 				
 				if(checkEnded)
@@ -86,7 +93,8 @@ int main()
 
 					next = current;
 
-					switch(_getch())
+
+					switch(_getche())
 					{
 					case 'n':
 						next = current->getNorth();
@@ -144,11 +152,11 @@ int main()
 
 			c = _getch();
 
-			if(c == 'y')
+			if(c == 'y' || c == 13)
 			{
 				gState = INITIALIZE;
 			}
-			else if(c == 'n')
+			else if(c == 'n' || c == 27)
 			{
 				gState = QUIT;
 			}
@@ -159,6 +167,7 @@ int main()
 			break;
 
 		case QUIT:
+
 			m.deleteRoomList();
 			break;
 		default:
