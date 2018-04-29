@@ -13,7 +13,7 @@ int main()
 
 	ifstream roomsFile;
 
-	//state machine
+	// mini-state machine
 	enum
 	{
 		INITIALIZE,
@@ -33,13 +33,13 @@ int main()
 		case INITIALIZE:
 			system("cls");
 
-			//create the linked list of rooms
+			// create the linked list of rooms
 			m.initRoomList();
 
 			current = m.getRoomList();
 
-			//open text file with the maze configuration
-			//read from the file and create connections between rooms
+			// open text file with the maze configuration
+			// read from the file and create connections between rooms
 			roomsFile.open("roomNum.txt");
 			if(roomsFile)
 			{
@@ -56,14 +56,16 @@ int main()
 			roomsFile.close();
 
 			cout << "Welcome to The Maze Game!" << endl;
-			cout << "Are you ready to play? Press 's' or Enter to start or 'q' or Escape to quit.\n" << endl;
+			cout << "Are you ready to play? Press Enter to start or Esc to quit...\n" << endl;
 
 			c = _getch();
-			if(c == 's' || c == 13)
+			// ENTER
+			if(c == 13)
 			{
 				gState = RUNNING;
 			}
-			else if(c == 'q' || c == 27)
+			// ESC
+			else if(c == 27)
 			{
 				gState = QUIT;
 			}

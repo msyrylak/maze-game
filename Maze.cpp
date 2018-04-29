@@ -96,7 +96,6 @@ void Maze::deleteRoomList()
 		next = current->getLink();
 		delete current;
 		current = next;
-		std::cout << "Deleted!" << std::endl;
 	}
 	roomList = nullptr;
 }
